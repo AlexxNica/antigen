@@ -36,8 +36,12 @@ antigen () {
   [[ "\$ZSH_EVAL_CONTEXT" =~ "toplevel:*" || "\$ZSH_EVAL_CONTEXT" =~ "cmdarg:*" ]] && source "$_ANTIGEN_INSTALL_DIR/antigen.zsh" && eval antigen \$@;
   return 0;
 }
+<<<<<<< HEAD
 typeset -gaU fpath path
 fpath+=(${_fpath[@]}) path+=(${_PATH[@]})
+=======
+fpath+=(${_fpath[@]}); PATH="\$PATH:${(j/:/)_PATH}"
+>>>>>>> 00bfeae43007f87e9f447e132f8a97ae702073eb
 _antigen_compinit () {
   autoload -Uz compinit; compinit -C -d "$ANTIGEN_COMPDUMP"; compdef _antigen antigen
   add-zsh-hook -D precmd _antigen_compinit
